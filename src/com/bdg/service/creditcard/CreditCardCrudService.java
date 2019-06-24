@@ -1,7 +1,7 @@
 package com.bdg.service.creditcard;
 
 
-import com.bdg.common.CardType;
+import com.bdg.common.enums.CardType;
 import com.bdg.common.exception.CreditCardNotFoundException;
 import com.bdg.entity.AbstractBankEntity;
 import com.bdg.entity.CreditCard;

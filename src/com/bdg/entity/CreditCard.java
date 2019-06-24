@@ -1,7 +1,7 @@
 package com.bdg.entity;
 
 
-import com.bdg.common.CardType;
+import com.bdg.common.enums.CardType;
 
 import java.time.LocalDate;
 
@@ -11,9 +11,14 @@ import java.time.LocalDate;
 
 
 public final class CreditCard extends AbstractBankEntity {
-
-    private String cardNumber;
+    /**
+     * Autoincrement id for account
+     */
     private int accountNumber;
+    /**
+     * Random generated 16 character long card number
+     */
+    private String cardNumber;
     private LocalDate expDate;
     private CardType cardType;
 

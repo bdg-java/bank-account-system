@@ -1,4 +1,4 @@
-package com.bdg.common;
+package com.bdg.common.enums;
 
 
 import com.bdg.common.exception.CardTypeNotFoundException;
