@@ -61,7 +61,7 @@ public final class CreditCardStorage implements Storage {
         return false;
     }
 
-    @Override
+
     public AbstractBankEntity get(int id) {
         if (id - 1 > this.currentStorageIndex) {
             throw new CreditCardNotFoundException(id);

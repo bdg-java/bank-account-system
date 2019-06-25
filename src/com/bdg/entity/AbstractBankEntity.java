@@ -24,6 +24,7 @@ public abstract class AbstractBankEntity {
         this.id = id;
     }
 
+
     public LocalDate getCreated() {
         return created;
     }
