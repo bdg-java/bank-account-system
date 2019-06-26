@@ -15,10 +15,10 @@ public class Customer {
 
     public String toString(){
         return "Customer : {" +
-                "CustomerName :"+
+                "CustomerName :" +
                 customerName + "," +
-                "CustomerSurName :" + customerSurName +","+
-                "customerAddress :" + customerAddress+
+                "CustomerSurName :" + customerSurName + "," +
+                "customerAddress :" + customerAddress +
                 "}";
     }
 }

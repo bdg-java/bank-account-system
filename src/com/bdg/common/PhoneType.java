@@ -5,5 +5,4 @@ public enum PhoneType {
     WORK,
     HOME,
 
-
 }

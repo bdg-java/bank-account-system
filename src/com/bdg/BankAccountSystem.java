@@ -2,11 +2,14 @@ package com.bdg;
 
 import com.bdg.common.Country;
 import com.bdg.common.CountryCode;
+import com.bdg.common.PhoneType;
 import com.bdg.entity.Address;
 import com.bdg.entity.Customer;
+import com.bdg.entity.PhoneNumber;
 import com.bdg.service.creditcard.*;
 import com.bdg.storage.Customer.CustomerStorage;
 
+import static com.bdg.common.CountryCode.ARM;
 import static java.util.Calendar.AM;
 
 
@@ -26,12 +29,13 @@ public class BankAccountSystem {
 
         CustomerCrudService customer = new CustomerCrudService();
 
-
         CustomerStorage cust = new CustomerStorage();
 
-
-        Address address = new Address(Country.AM, "Tigran Mets");
+        PhoneNumber phoneNumber = new PhoneNumber(ARM,"555 555", PhoneType.HOME);
+        Address address = new Address(Country.AM, "Tigran Mets", phoneNumber);
         Customer one = new Customer("Seda","Poxosyan",address );
+        customer.create("Seda","Hovsepyan",address);
+
         cust.addCustomer(one);
         System.out.println(one);
 

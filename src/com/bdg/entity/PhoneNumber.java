@@ -15,6 +15,15 @@ public class PhoneNumber extends AbstractBankEntity {
             this.countryCode = countryCode;
             this.number = number;
             this.phoneType = phoneType;
+
         }
+
+
+      public String toString(){
+            return "PhoneNumber :" +" "+ "{"+
+                    "CountryCode :" + " " + countryCode +
+                    "Number :" + " " + number +
+                    "PhoneType" + " " + phoneType + "}";
+      }
 }
 
