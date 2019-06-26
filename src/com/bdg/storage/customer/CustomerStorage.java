@@ -1,7 +1,7 @@
-package com.bdg.storage.creditcard;
+package com.bdg.storage.customer;
 
+import com.bdg.entity.Address;
 import com.bdg.entity.Customer;
-
 import java.util.Arrays;
 
 public class CustomerStorage {
@@ -34,16 +34,54 @@ public class CustomerStorage {
         if(this.storageSize == currentStorageIndex){
             this.increaseStorageSize();
         }
-        container[currentStorageIndex+1] = customer;
+        customer.setId(currentStorageIndex+1);
+        container[currentStorageIndex] = customer;
         currentStorageIndex++;
         return  true;
 
+    }
 
+    public Customer get(String name){
+        for (Customer customer : container) {
+            if(customer != null && customer.getName() == name){
+                return customer;
+            }
+        }
+        return null;
+    }
+
+
+    public boolean remove (int id){
+        Customer[] customersListAfterDelete = new Customer[container.length];
+        int i=0;
+        for (Customer customer : container) {
+            if(customer.getId() != id){
+                customersListAfterDelete[i] = customer;
+                i++;
+            }
+        }
+        return customersListAfterDelete.length == container.length;
+
+    }
+
+
+    public Customer update(int id, String name, String surname, Address address){
+
+        for (Customer customer : container) {
+            if(customer != null && customer.getId() == id){
+                customer.setName(name == null ? customer.getName() : name);
+                customer.setSurname(surname == null ? customer.getSurname() : surname);
+                customer.setAddress(address == null ? customer.getAddress() : address);
+                return  customer;
+            }
+        }
+
+        return null;
     }
 
     public void increaseStorageSize(){
         Customer[] customer = new Customer[currentStorageIndex + currentStorageIndex*increaseSize];
-        System.arraycopy(container,0,customer,0,customer.length);
+        System.arraycopy(container,0,customer,0,container.length);
         container = customer;
         this.storageSize = customer.length;
 
