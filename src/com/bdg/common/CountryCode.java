@@ -12,18 +12,16 @@ public enum CountryCode {
         this.country = country;
     }
 
-    public CountryCode findCountryCode(String countryCode, Country country ){
+    public CountryCode findCountryCode(String codeOfCountry ){
         CountryCode found = null;
-        CountryCode countryFound = null;
 
         for(CountryCode value : values()){
-            if(value.name().equalsIgnoreCase(countryCode)){
+            if(value.name().equalsIgnoreCase(codeOfCountry)){
                 found = value ;
             }
-
-            if(found == null){
-                throw new CountryCodeNotFoundException(countryCode);
-            }
+        }
+        if(found == null){
+            throw new CountryCodeNotFoundException(codeOfCountry);
         }
         return found;
     }

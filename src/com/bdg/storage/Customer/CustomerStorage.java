@@ -7,7 +7,7 @@ import com.bdg.storage.Storage;
 
 import java.time.LocalDate;
 
-public class CustomerStorage extends AbstractBankEntity {
+public class CustomerStorage implements Storage {
 
     private static final int DEFAULT_STORAGE_SIZE = 10;
     private Customer[] container;
@@ -37,38 +37,32 @@ public class CustomerStorage extends AbstractBankEntity {
     public int storageSize(){
         return this.storageSize;
     }
-    public boolean addCustomer(Customer customers) {
-
+    public boolean add(AbstractBankEntity entity) {
         if (this.storageSize == currentStorageIndex) {
-            this.incStorageSize();
+            incStorageSize();
         }
-        this.container[currentStorageIndex] = customers;
+        entity.setId(currentStorageIndex + 1);
+        entity.setCreated(LocalDate.now());
+
+        this.container[currentStorageIndex] = (Customer) entity;
         currentStorageIndex++;
         return true;
     }
 
+    @Override
+    public boolean remove(int id) {
+        return false;
+    }
 
-    public boolean removeCustomer(Customer customers) {
-        int removed = -1;
-        for (int i = 0; i < currentStorageIndex; i++) {
-            if (this.container[i] != null)
-                if (this.container[i].equals(container))
-                    removed = i;
+
+    public AbstractBankEntity get(int id) {
+        if (id - 1 > this.currentStorageIndex) {
+            throw new CustomerNotFoundException(id);
         }
 
-
-        Customer[] lengthOfCustomer = new Customer[currentStorageIndex];
-        int k = 0;
-        for (int i = 0; i < currentStorageIndex; i++)
-            if(i != removed) {
-                lengthOfCustomer[k++] = this.container[i];
-            }
-        this.container = lengthOfCustomer;
-        currentStorageIndex--;
-
-
-        return true;
+        return this.container[id -1];
     }
+
 
     private void incStorageSize() {
         Customer[] customers = new Customer[currentStorageIndex + (int) (currentStorageIndex * incSize)];
