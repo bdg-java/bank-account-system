@@ -1,6 +1,6 @@
 package com.bdg.entity;
 
-public class Customer {
+public class Customer extends AbstractBankEntity {
     private int id;
     private String name;
     private String surname;

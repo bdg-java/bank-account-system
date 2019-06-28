@@ -1,10 +1,13 @@
 package com.bdg.storage.customer;
 
+import com.bdg.entity.AbstractBankEntity;
 import com.bdg.entity.Address;
 import com.bdg.entity.Customer;
+import com.bdg.storage.Storage;
+
 import java.util.Arrays;
 
-public class CustomerStorage {
+public class CustomerStorage implements Storage {
 
     private static final int DEFAULT_STORAGE_SIZE = 10;
     private Customer[] container;
@@ -30,20 +33,25 @@ public class CustomerStorage {
         this(DEFAULT_STORAGE_SIZE);
     }
 
-    public boolean add(Customer customer){
+    @Override
+    public int storageSize() {
+        return this.storageSize;
+    }
+
+    public boolean add(AbstractBankEntity customer){
         if(this.storageSize == currentStorageIndex){
             this.increaseStorageSize();
         }
         customer.setId(currentStorageIndex+1);
-        container[currentStorageIndex] = customer;
+        container[currentStorageIndex] = (Customer) customer;
         currentStorageIndex++;
         return  true;
 
     }
 
-    public Customer get(String name){
+    public Customer get(int id){
         for (Customer customer : container) {
-            if(customer != null && customer.getName() == name){
+            if(customer != null && customer.getId() == id){
                 return customer;
             }
         }

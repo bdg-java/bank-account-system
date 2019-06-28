@@ -6,6 +6,6 @@ import com.bdg.entity.Customer;
 public interface CustomerService {
     Customer create(String name, String surname, Address address);
     boolean delete(int id);
-    Customer get(String name);
+    Customer get(int id);
     Customer update(int id,String name,String surname,Address address);
 }

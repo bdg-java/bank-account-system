@@ -33,10 +33,10 @@ public class CustomerCrudService implements CustomerService {
     }
 
     @Override
-    public Customer get(String name) {
-        Customer customer = customerStorage.get(name);
+    public Customer get(int id) {
+        Customer customer = customerStorage.get(id);
         if (customer == null) {
-            throw new CustomerNotFoundException(name);
+            throw new CustomerNotFoundException(id);
         }
         return customer;
     }
