@@ -1,4 +1,4 @@
-package com.bdg.service.creditcard;
+package com.bdg.service.account.creditcard;
 
 
 import com.bdg.common.enums.CardType;
@@ -40,5 +40,13 @@ public class CreditCardCrudService implements CreditCardService {
             throw new CreditCardNotFoundException(id);
         }
         return (CreditCard) card;
+    }
+
+    public boolean remove(int id){
+        if(!creditCardStorage.remove(id)){
+            throw new CreditCardNotFoundException(id);
+
+        }
+        return true;
     }
 }

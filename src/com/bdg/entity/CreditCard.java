@@ -11,9 +11,7 @@ import java.time.LocalDate;
 
 
 public final class CreditCard extends AbstractBankEntity {
-    /**
-     * Autoincrement id for account
-     */
+
     private int accountNumber;
     /**
      * Random generated 16 character long card number
@@ -21,12 +19,31 @@ public final class CreditCard extends AbstractBankEntity {
     private String cardNumber;
     private LocalDate expDate;
     private CardType cardType;
+    private byte active;
 
     public CreditCard(String cardNumber, int accountNumber, LocalDate expDate, CardType cardType) {
         this.cardNumber = cardNumber;
         this.accountNumber = accountNumber;
         this.expDate = expDate;
         this.cardType = cardType;
+        this.active = 1;
+    }
+
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public byte getActive() {
+        return active;
+    }
+
+    public void setActive(byte active) {
+        this.active = active;
     }
 
     @Override

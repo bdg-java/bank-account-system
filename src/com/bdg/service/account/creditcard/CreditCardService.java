@@ -1,4 +1,4 @@
-package com.bdg.service.creditcard;
+package com.bdg.service.account.creditcard;
 
 
 import com.bdg.entity.CreditCard;
@@ -11,6 +11,6 @@ import com.bdg.entity.CreditCard;
 public interface CreditCardService {
 
     CreditCard create(String cardNumber, int accountNumber, String expDate, String cardType);
-
     CreditCard get(int id);
+    boolean remove(int id);
 }

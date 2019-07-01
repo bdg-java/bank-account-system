@@ -2,6 +2,7 @@ package com.bdg.storage;
 
 
 import com.bdg.entity.AbstractBankEntity;
+import com.bdg.entity.CreditCard;
 
 /**
  * @author William Arustamyan

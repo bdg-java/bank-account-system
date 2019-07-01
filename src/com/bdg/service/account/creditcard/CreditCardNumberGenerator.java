@@ -1,4 +1,4 @@
-package com.bdg.service.creditcard;
+package com.bdg.service.account.creditcard;
 
 
 import java.util.Random;

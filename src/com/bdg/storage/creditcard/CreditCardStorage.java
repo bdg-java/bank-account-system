@@ -58,16 +58,23 @@ public final class CreditCardStorage implements Storage {
 
     @Override
     public boolean remove(int id) {
+        for (int i = 0; i < container.length; i++) {
+            if (container[i] != null && container[i].getId() == id) {
+                container[i].setActive((byte) 0);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public AbstractBankEntity get(int id) {
-        if (id - 1 > this.currentStorageIndex) {
-            throw new CreditCardNotFoundException(id);
+        for (CreditCard creditCard : container) {
+            if (creditCard != null && creditCard.getId() == id && creditCard.getActive() == 1) {
+                return creditCard;
+            }
         }
-
-        return this.container[id -1];
+        return null;
     }
 
     private void incStorageSize() {

@@ -1,4 +1,4 @@
-package com.bdg.service.customer;
+package com.bdg.service.account.customer;
 
 import com.bdg.common.exception.CustomerNotFoundException;
 import com.bdg.entity.Address;
