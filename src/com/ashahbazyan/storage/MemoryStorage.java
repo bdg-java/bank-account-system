@@ -5,17 +5,15 @@ import com.ashahbazyan.entity.BankEntity;
 public class MemoryStorage<T extends BankEntity> implements Storage<T> {
     private BankEntity[] container;
     private int currentStorageIndex;
-    private int storageSize;
 
     public MemoryStorage(int storageSize) {
-        this.storageSize = storageSize;
         container = new BankEntity[storageSize];
     }
 
     @Override
     public T add(T entity) {
 
-        if (storageSize == currentStorageIndex) {
+        if (currentStorageIndex == container.length) {
             increaseSize();
         }
         this.container[currentStorageIndex] = entity;
@@ -32,11 +30,27 @@ public class MemoryStorage<T extends BankEntity> implements Storage<T> {
 
     @Override
     public T remove(int id) {
+        //BankEntity[] newBankEntity = new BankEntity[container.length];
+        BankEntity removed = null ;
+        for(int i =0;i<container.length;i++){
+            if(container[i].getId() == id){
+               removed =  this.container[i];
+                container[i] =null;
+            }
+        }
+//        newBankEntity = container;
         return null;
     }
 
     @Override
     public T get(int id) {
+        for (BankEntity bankEntity : container) {
+            if(bankEntity != null&& bankEntity.getId() == id){
+                return (T) bankEntity;
+            }
+        }
+
         return null;
     }
 }
+

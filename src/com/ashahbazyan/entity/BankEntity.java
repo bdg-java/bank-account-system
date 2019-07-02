@@ -8,4 +8,8 @@ public abstract class BankEntity {
     protected LocalDate created;
     protected LocalDate updated;
     protected LocalDate deleted;
+
+    public int getId() {
+        return id;
+    }
 }
