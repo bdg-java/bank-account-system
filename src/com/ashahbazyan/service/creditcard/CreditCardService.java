@@ -9,4 +9,14 @@ public class CreditCardService  implements BankAccountBaseService<CreditCard, Cr
     public CreditCard create(CreditCardCreationRequest request) {
         return null;
     }
+
+    @Override
+    public CreditCard get(int id) {
+        return null;
+    }
+
+    @Override
+    public CreditCard remove(int id) {
+        return null;
+    }
 }

@@ -2,6 +2,8 @@ package com.ashahbazyan.storage;
 
 import com.ashahbazyan.entity.BankEntity;
 
+import java.time.LocalDate;
+
 public class MemoryStorage<T extends BankEntity> implements Storage<T> {
     private BankEntity[] container;
     private int currentStorageIndex;
@@ -16,6 +18,8 @@ public class MemoryStorage<T extends BankEntity> implements Storage<T> {
         if (currentStorageIndex == container.length) {
             increaseSize();
         }
+        entity.setId(currentStorageIndex+1);
+        entity.setCreated(LocalDate.now());
         this.container[currentStorageIndex] = entity;
         currentStorageIndex++;
         return entity;

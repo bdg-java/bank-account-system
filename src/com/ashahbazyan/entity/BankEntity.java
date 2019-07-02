@@ -12,4 +12,12 @@ public abstract class BankEntity {
     public int getId() {
         return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
 }

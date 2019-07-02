@@ -10,4 +10,14 @@ public class AccountService implements BankAccountBaseService<Account, AccountCr
     public Account create(AccountCreationRequest request) {
         return null;
     }
+
+    @Override
+    public Account get(int id) {
+        return null;
+    }
+
+    @Override
+    public Account remove(int id) {
+        return null;
+    }
 }
