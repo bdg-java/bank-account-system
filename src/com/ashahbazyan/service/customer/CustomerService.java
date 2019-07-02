@@ -11,7 +11,7 @@ import com.ashahbazyan.storage.MemoryStorage;
 import com.ashahbazyan.storage.Storage;
 
 public class CustomerService implements BankAccountBaseService<Customer, CustomerCreationRequest> {
-    private Storage<Customer> memoryStorage = new MemoryStorage<>(10);
+    private Storage<Customer> memoryStorage = new MemoryStorage<>(STORAGE_SIZE);
     private BankAccountBaseService<Address, AddressCreationRequest> addressService = new AddressService();
 
     @Override

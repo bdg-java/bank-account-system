@@ -5,11 +5,11 @@ import com.ashahbazyan.common.Country;
 public class AddressCreationRequest {
     public String phoneNumber;
     public String street;
-    public Country country;
+    public String countryName;
 
-    public AddressCreationRequest(String phoneNumber, String street, Country country) {
+    public AddressCreationRequest(String phoneNumber, String street, String countryName) {
         this.phoneNumber = phoneNumber;
         this.street = street;
-        this.country = country;
+        this.countryName = countryName;
     }
 }
