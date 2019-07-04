@@ -6,4 +6,7 @@ public class CountryNotFoundException extends RuntimeException {
     public CountryNotFoundException(String name) {
         errorMsg = "Country with name " + name + " not found";
     }
+    public String getMessage() {
+        return errorMsg;
+    }
 }

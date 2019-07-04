@@ -7,4 +7,7 @@ public class CreditCardNotFoundException extends RuntimeException {
     public CreditCardNotFoundException(int id) {
         errorMsg = "Credit Card with id " + id + " not found";
     }
+    public String getMessage() {
+        return errorMsg;
+    }
 }

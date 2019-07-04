@@ -3,7 +3,11 @@ package com.ashahbazyan.exceptions;
 public class AddressNotFoundException extends RuntimeException {
     private final String errorMsg;
 
-    public AddressNotFoundException(String name) {
-        errorMsg = "Country with name " + name + " not found";
+    public AddressNotFoundException(int id) {
+        errorMsg = "Country with name " + id + " not found";
+    }
+
+    public String getMessage() {
+        return errorMsg;
     }
 }

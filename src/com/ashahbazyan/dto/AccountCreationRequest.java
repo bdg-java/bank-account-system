@@ -3,9 +3,9 @@ package com.ashahbazyan.dto;
 import com.ashahbazyan.entity.CreditCard;
 
 public class AccountCreationRequest {
-    private AccountBalanceCreationRequest accountBalanceCreationRequest;
-    private CustomerCreationRequest customerCreationRequest;
-    private CreditCardCreationRequest creditCardCreationRequest;
+    public AccountBalanceCreationRequest accountBalanceCreationRequest;
+    public CustomerCreationRequest customerCreationRequest;
+    public CreditCardCreationRequest creditCardCreationRequest;
 
     public AccountCreationRequest(AccountBalanceCreationRequest accountBalanceCreationRequest,
                                   CustomerCreationRequest customerCreationRequest,

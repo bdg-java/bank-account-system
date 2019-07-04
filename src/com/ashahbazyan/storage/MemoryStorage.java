@@ -18,7 +18,7 @@ public class MemoryStorage<T extends BankEntity> implements Storage<T> {
         if (currentStorageIndex == container.length) {
             increaseSize();
         }
-        entity.setId(currentStorageIndex+1);
+        entity.setId(currentStorageIndex + 1);
         entity.setCreated(LocalDate.now());
         this.container[currentStorageIndex] = entity;
         currentStorageIndex++;
@@ -26,8 +26,8 @@ public class MemoryStorage<T extends BankEntity> implements Storage<T> {
     }
 
     private void increaseSize() {
-        BankEntity[] bankEntities =  new BankEntity[container.length+ (container.length/2)];
-        System.arraycopy(container,0,bankEntities,0,container.length);
+        BankEntity[] bankEntities = new BankEntity[container.length + (container.length / 2)];
+        System.arraycopy(container, 0, bankEntities, 0, container.length);
         container = bankEntities;
 
     }
@@ -35,11 +35,11 @@ public class MemoryStorage<T extends BankEntity> implements Storage<T> {
     @Override
     public T remove(int id) {
         //BankEntity[] newBankEntity = new BankEntity[container.length];
-        BankEntity removed = null ;
-        for(int i =0;i<container.length;i++){
-            if(container[i].getId() == id){
-               removed =  this.container[i];
-                container[i] =null;
+        BankEntity removed = null;
+        for (int i = 0; i < container.length; i++) {
+            if (container[i].getId() == id) {
+                removed = this.container[i];
+                container[i] = null;
             }
         }
 //        newBankEntity = container;
@@ -49,11 +49,10 @@ public class MemoryStorage<T extends BankEntity> implements Storage<T> {
     @Override
     public T get(int id) {
         for (BankEntity bankEntity : container) {
-            if(bankEntity != null&& bankEntity.getId() == id){
+            if (bankEntity != null && bankEntity.getId() == id) {
                 return (T) bankEntity;
             }
         }
-
         return null;
     }
 }

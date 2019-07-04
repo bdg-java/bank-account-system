@@ -5,4 +5,7 @@ public class CustomerNotFoundException extends RuntimeException {
   public   CustomerNotFoundException(int id){
         errorMsg = "Customer with name "+ id +" not found";
     }
+    public String getMessage() {
+        return errorMsg;
+    }
 }
