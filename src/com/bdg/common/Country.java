@@ -1,7 +1,6 @@
 package com.bdg.common;
 
 import com.bdg.common.exception.CountryNotFoundException;
-import com.bdg.common.exception.NumericCodeNotFoundException;
 
 public enum Country {
     AM("Armenia" ,"051");
@@ -13,9 +12,9 @@ public enum Country {
         this.numercCode = numercCode;
     }
 
-    public static Country findByName(String countryName, String numercCode) {
+    public static Country findByName(String countryName) {
         Country found = null;
-        Country numericFound = null;
+
 
 
 
@@ -23,17 +22,11 @@ public enum Country {
             if (value.name().equalsIgnoreCase(countryName)) {
                 found = value;
             }
-            if (value.name().equalsIgnoreCase(numercCode)) {
-                numericFound = value;
-            }
         }
         if (found == null) {
             throw new CountryNotFoundException(countryName);
         }
 
-        if(numericFound == null){
-            throw new NumericCodeNotFoundException(numercCode);
-        }
         return found;
 
     }

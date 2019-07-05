@@ -1,4 +1,4 @@
-package com.bdg.storage.Customer;
+package com.bdg.storage.customer;
 
 import com.bdg.common.exception.CustomerNotFoundException;
 import com.bdg.entity.AbstractBankEntity;
@@ -49,10 +49,19 @@ public class CustomerStorage implements Storage {
         return true;
     }
 
-    @Override
     public boolean remove(int id) {
-        return false;
+        AbstractBankEntity customers = get(id);
+        currentStorageIndex--;
+        customers.setDeleted(LocalDate.now());
+        if (customers == null) {
+            throw new CustomerNotFoundException(id);
+        }
+
+        return true;
+
+
     }
+
 
 
     public AbstractBankEntity get(int id) {
@@ -60,7 +69,7 @@ public class CustomerStorage implements Storage {
             throw new CustomerNotFoundException(id);
         }
 
-        return this.container[id -1];
+        return this.container[id - 1];
     }
 
 

@@ -1,15 +1,14 @@
 package com.bdg.common.exception;
 
-public class PhoneTypeNotFoundException {
+public class PhoneTypeNotFoundException extends RuntimeException {
 
-//    private final String DEFAULT_MESSAGE = "Card Type not found with name %s ... ";
-//    private final String message;
-//
-//    public PhoneTypeNotFoundException(S) {
-//        this.message = String.format(DEFAULT_MESSAGE, cardName);
-//    }
-//
-//    public String getMessage() {
-//        return this.message;
-//    }
+    private final String message;
+    public PhoneTypeNotFoundException(int id) {
+
+        this.message = "customer with id {" + id + "} not found ...";
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
 }

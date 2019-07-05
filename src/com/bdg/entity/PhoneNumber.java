@@ -4,6 +4,8 @@ package com.bdg.entity;
 import com.bdg.common.CountryCode;
 import com.bdg.common.PhoneType;
 
+import java.util.Arrays;
+
 public class PhoneNumber extends AbstractBankEntity {
 
         private CountryCode countryCode;
@@ -18,12 +20,10 @@ public class PhoneNumber extends AbstractBankEntity {
 
         }
 
-
       public String toString(){
-            return "PhoneNumber :" +" "+ "{"+
-                    "CountryCode :" + " " + countryCode +
-                    "Number :" + " " + number +
-                    "PhoneType" + " " + phoneType + "}";
+            return "Contry:" + " " + this.countryCode + " " +
+             "Number:" + " " + this.number + " " +
+                    "phoneType:" + " " + this.phoneType;
       }
 }
 

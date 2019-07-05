@@ -1,6 +1,6 @@
 package com.bdg.entity;
 
-public class Customer {
+public class Customer extends  AbstractBankEntity{
     private String customerName;
     private String customerSurName;
     private Address customerAddress;
@@ -14,7 +14,7 @@ public class Customer {
 
 
     public String toString(){
-        return "Customer : {" +
+        return "customer : {" +
                 "CustomerName :" +
                 customerName + "," +
                 "CustomerSurName :" + customerSurName + "," +

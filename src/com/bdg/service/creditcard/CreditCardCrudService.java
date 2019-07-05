@@ -20,6 +20,7 @@ public class CreditCardCrudService implements CreditCardService {
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     private final Storage creditCardStorage = new CreditCardStorage();
+    public int currentIndex = 0;
 
 
     @Override
@@ -28,6 +29,7 @@ public class CreditCardCrudService implements CreditCardService {
         final CardType type = CardType.findByName(cardType);
         final CreditCard creditCard = new CreditCard(cardNumber, accountNumber, date, type);
         if (creditCardStorage.add(creditCard)) {
+            currentIndex++;
             return creditCard;
         }
         return null;
@@ -40,5 +42,15 @@ public class CreditCardCrudService implements CreditCardService {
             throw new CreditCardNotFoundException(id);
         }
         return (CreditCard) card;
+    }
+
+    public CreditCard remove(int id) {
+        AbstractBankEntity creditCrards = creditCardStorage.get(id);
+        creditCrards.setDeleted(LocalDate.now());
+        currentIndex--;
+        if (creditCrards == null) {
+            throw new CreditCardNotFoundException(id);
+        }
+        return (CreditCard) creditCrards;
     }
 }
